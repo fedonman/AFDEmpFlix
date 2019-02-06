@@ -1,4 +1,20 @@
-﻿@{
+﻿@model IEnumerable<AFDEmpFlix.Models.Movie>
+@{
     ViewBag.Title = "Home";
 }
 
+<div class="row">
+    @foreach (var movie in Model)
+    {
+        <div class="col-4">
+            <div class="card">
+                <img src="@movie.ThumbnailUrl" class="card-img-top" alt="@movie.Title">
+                <div class="card-body">
+                    <h4 class="card-title">@movie.Title</h4>
+                    <h5 class="card-subtitle">@movie.Genre</h5>
+                    <a href="@movie.TrailerUrl" class="btn btn-block btn-primary mt-4">Watch now!</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
